@@ -1,6 +1,14 @@
 # flake8-runner
-A simple script that runs flake8 on every .py file, from the current directory.   
-Python 2.7.6 used.
+A simple python (2.7.6) script that runs flake8 on every .py file, from the current directory.  
+
+Flake8 is a wrapper around these tools:
+
+    PyFlakes
+    pep8
+    Ned Batchelder’s McCabe script
+
+Flake8 runs all the tools by launching the single flake8 script. It displays the warnings in a per-file, merged output.  
+
 
 In order to be able to use it, you need to [install](https://pip.pypa.io/en/latest/installing.html) `pip` first.  
 
