@@ -4,9 +4,10 @@ Python 2.7.6 used.
 
 In order to be able to use it, you need to [install](https://pip.pypa.io/en/latest/installing.html) `pip` first.  
 
-Then, install [flake8](https://pypi.python.org/pypi/flake8) and run the script:  
+Then, just install [flake8](https://pypi.python.org/pypi/flake8) and run the script:  
 ```
 $ pip install flake8
+$ cd /py-files-directory
 $ python flake8-runner.py
 ```
 
