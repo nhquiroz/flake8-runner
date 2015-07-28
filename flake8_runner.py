@@ -38,18 +38,14 @@ def run_flake8_on(py_file):
 
 def create_py_list_from_directory():
     """
-    Creates a list from .py files present on the current directory (except
-    for this script) and returns the list sorted.
+    Returns a sorted list, created from all the existent .py files on the
+    current directory (except for this script).
     """
 
-    script_list = []
+    py_list = [py for py in glob.glob("*.py") if py != 'flake8_runner.py']
+    py_list.sort()
 
-    for py_file in glob.glob("*.py"):
-        if py_file != 'flake8_runner.py':
-            script_list.append(py_file)
-
-    script_list.sort()
-    return script_list
+    return py_list
 
 
 def exit_if_list_is_empty(py_list):
