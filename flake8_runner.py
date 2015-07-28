@@ -75,7 +75,7 @@ def print_result(number_of_issues):
 
 # <--- beginning of the script --->
 
-def flake8_runner():
+def main():
     """
     This is the main function of the script. It initializes the
     number_of_issues_found global variable to zero, then list all the .py
@@ -96,4 +96,4 @@ def flake8_runner():
 
     print_result(number_of_issues_found)
 
-flake8_runner()
+main()
