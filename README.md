@@ -1,6 +1,6 @@
 # flake8-runner
 
-[![Code Climate](https://codeclimate.com/github/nhquiroz/flake8-runner/badges/gpa.svg)](https://codeclimate.com/github/nhquiroz/flake8-runner)
+[![Code Climate](https://codeclimate.com/github/nhquiroz/flake8-runner/badges/gpa.svg)](https://codeclimate.com/github/nhquiroz/flake8-runner) [![Code Health](https://landscape.io/github/nhquiroz/flake8-runner/master/landscape.svg?style=flat)](https://landscape.io/github/nhquiroz/flake8-runner/master) [![Code Issues](http://www.quantifiedcode.com/api/v1/project/0a93b03370334f97b31c6a2bc4398d0d/badge.svg)](http://www.quantifiedcode.com/app/project/0a93b03370334f97b31c6a2bc4398d0d)
 
 ![screenshot](https://github.com/nhquiroz/flake8-runner/blob/master/screenshots/test-ok.png)
 
