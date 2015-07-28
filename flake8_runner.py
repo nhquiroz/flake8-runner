@@ -64,7 +64,7 @@ def exit_if_list_is_empty(py_list):
         sys.exit()
 
 
-def print_result(issues):
+def show_results(issues):
     """
     Prints the result, after all the files from the current directory
     have been analyzed. If issues are found, shows the quantity.
@@ -98,6 +98,6 @@ def main():
     for script in py_list:
         issues_found += run_flake8_on(script)
 
-    print_result(issues_found)
+    show_results(issues_found)
 
 main()
