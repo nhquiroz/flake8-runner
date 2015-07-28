@@ -19,18 +19,17 @@ RED = Fore.RED
 
 def run_flake8_on(py_file):
     """
-    Runs 'flake8' command on 'py_file' passed as argument and returns.
+    Runs 'flake8' command on 'py_file' passed as argument and returns a
+    Boolean value, indicating if any issue is found.
     flake8_exit_code contains the exit code from calling 'flake8' command with
-    'py_file' as argument. If flake8_exit_code is equal to zero, it means there
-    are no errors and an 'OK' legend will be printed.
-    Otherwise, the issue is reported.
+    'py_file' as argument. If flake8_exit_code equals 0, there are no errors
+    and an 'OK' legend will be printed. Otherwise, the issue is reported.
     """
 
     issues = False
     flake8_exit_code = subprocess.call("flake8 " + str(py_file), shell=True)
     if flake8_exit_code != 0:
         issues = True
-        return flake8_exit_code
     else:
         print("{}{!r}{}".format(GREEN, py_file, "... OK."))
 
@@ -94,7 +93,7 @@ def main():
     print("{} {} {}".format(n, "files to be analyzed:", "\n"))
 
     for script in py_list:
-        issues_found += run_flake8_on(script)
+        issues_found = run_flake8_on(script)
 
     show_results(issues_found)
 
