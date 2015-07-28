@@ -2,6 +2,7 @@
 
 # <--- modules needed --->
 
+import sys
 import glob
 import subprocess
 from colorama import Fore, init
@@ -19,8 +20,8 @@ def run_flake8_on_file(filename):
         global error_counter
         error_counter += 1
         return flake8_exit_code
-
-    print(Fore.GREEN + "%r... OK.") % filename
+    else:
+        print(Fore.GREEN + "%r... OK.") % filename
 
 
 def create_py_list_from_directory():
@@ -38,14 +39,14 @@ def create_py_list_from_directory():
 def exit_if_list_is_empty(list):
     if not list:
         print(Fore.RED + "No .py files found. Try another directory.")
-        raise SystemError   # stops execution and raise SystemError exception
+        sys.exit()
 
 
 def print_results():
     if error_counter > 0:
         print(Fore.RED + "\n" + "Finished. Some errors found.")
     else:
-        print("\n" + "> All scripts have passed flake8!")
+        print("\n" + "Finished. All scripts have passed flake8!")
 
 
 # <--- beginning of the script --->
