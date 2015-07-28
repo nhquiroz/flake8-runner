@@ -2,7 +2,7 @@
 
 [![Code Climate](https://codeclimate.com/github/nhquiroz/flake8-runner/badges/gpa.svg)](https://codeclimate.com/github/nhquiroz/flake8-runner)
 
-![test-ok](https://github.com/nhquiroz/flake8-runner/blob/master/screenshots/test_ok.png)
+![screenshot](https://github.com/nhquiroz/flake8-runner/blob/master/screenshots/test-ok.png)
 
 ## Overview
 
