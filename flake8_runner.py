@@ -85,8 +85,8 @@ def main():
     py_list = create_py_list_from_directory()
     exit_if_list_is_empty(py_list)
 
-    n = len(py_list)
-    print("{} {} {}".format(n, "files to be analyzed:", "\n"))
+    number_of = len(py_list)
+    print("{} {} {}".format(number_of, "files to be analyzed:", "\n"))
 
     for script in py_list:
         issues_found = run_flake8_on(script)
