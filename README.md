@@ -2,6 +2,8 @@
 
 [![Code Climate](https://codeclimate.com/github/nhquiroz/flake8-runner/badges/gpa.svg)](https://codeclimate.com/github/nhquiroz/flake8-runner)
 
+![test-ok](https://github.com/nhquiroz/flake8-runner/blob/master/screenshots/test_ok.png)
+
 ## Overview
 
 A simple python (2.7.6) script that runs flake8 on every .py file, from the current directory.  
@@ -25,6 +27,3 @@ $ pip install flake8
 $ cd /py-files-directory
 $ python flake8-runner.py
 ```
-
-## Screenshots
-
