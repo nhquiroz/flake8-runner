@@ -31,7 +31,7 @@ def run_flake8_on(py_file):
     if flake8_exit_code != 0:
         issues = True
     else:
-        print("{}{!r}{}".format(GREEN, py_file, "... OK."))
+        print("{0}{1!r}... OK.".format(GREEN, py_file))
 
     return issues
 
@@ -55,7 +55,7 @@ def exit_if_list_is_empty(py_list):
     """
 
     if not py_list:
-        print("{}{}".format(RED, "No .py files found. Try another directory."))
+        print("{0}No '*.py' files found. Try another directory.".format(RED))
         sys.exit()
 
 
@@ -66,9 +66,9 @@ def show_results(issues):
     """
 
     if issues:
-        print("{}{}{}".format(RED, "\n", "WARNING: Some issues found."))
+        print("{0}\nWARNING: Some issues found.".format(RED))
     else:
-        print("{}{}".format("\n", "OK! All scripts have passed flake8."))
+        print("\nOK! All scripts have passed flake8.")
 
 
 # <--- beginning of the script --->
@@ -86,7 +86,7 @@ def main():
     exit_if_list_is_empty(py_list)
 
     number_of = len(py_list)
-    print("{} {} {}".format(number_of, "files to be analyzed:", "\n"))
+    print("{0} files to be analyzed: \n".format(number_of))
 
     for script in py_list:
         issues_found = run_flake8_on(script)
