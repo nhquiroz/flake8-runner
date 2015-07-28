@@ -17,7 +17,7 @@ RED = Fore.RED
 
 # <--- aux functions --->
 
-def run_flake8_on_file(py_file):
+def run_flake8_on(py_file):
     """
     Runs 'flake8' command on 'py_file' passed as argument.
     flake8_exit_code contains the exit code from calling 'flake8' command with
@@ -26,15 +26,15 @@ def run_flake8_on_file(py_file):
     Otherwise, the issue is reported.
     """
 
-    issues_found = 0
+    issues = 0
     flake8_exit_code = subprocess.call("flake8 " + str(py_file), shell=True)
     if flake8_exit_code != 0:
-        issues_found = 1
+        issues = 1
         return flake8_exit_code
     else:
         print("{}{!r}{}".format(GREEN, py_file, "... OK."))
 
-    return issues_found
+    return issues
 
 
 def create_py_list_from_directory():
@@ -96,7 +96,7 @@ def main():
     print("{} {} {}".format(n, "files to be analyzed:", "\n"))
 
     for script in py_list:
-        issues_found += run_flake8_on_file(script)
+        issues_found += run_flake8_on(script)
 
     print_result(issues_found)
 
