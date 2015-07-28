@@ -18,9 +18,10 @@ Flake8 runs all the tools by launching the single flake8 script. It displays the
 
 ## Installation
 In order to be able to use it, you need to:  
-0. [Install Python 2.7.x or newer](https://www.python.org/downloads/) (not tested on previous versions).  
-1. [Install pip](https://pip.pypa.io/en/latest/installing.html).    
-2. [Install the flake8 package](https://pypi.python.org/pypi/flake8).  
+
+1. [Install Python 2.7.x or newer](https://www.python.org/downloads/) (not tested on previous versions).  
+2. [Install pip](https://pip.pypa.io/en/latest/installing.html).    
+3. [Install the flake8 package](https://pypi.python.org/pypi/flake8).  
 
 ## Usage
 
