@@ -81,18 +81,17 @@ def show_results(issues):
 
 def main():
     """
-    This is the main function of the script. It initializes the
-    issues_found global variable to zero, then list all the .py
-    files from the current directory and finnaly applies the 'flake8'
-    command to each.
+    This is the main function of the script. It lists all the .py
+    files from the current directory and then applies the 'flake8'
+    command to each. Finally, prints the result message.
     """
 
     issues_found = 0
 
     py_list = create_py_list_from_directory()
     exit_if_list_is_empty(py_list)
-    n = len(py_list)
 
+    n = len(py_list)
     print("{} {} {}".format(n, "files to be analyzed:", "\n"))
 
     for script in py_list:
