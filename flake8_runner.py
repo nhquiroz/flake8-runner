@@ -10,11 +10,17 @@ init()
 
 # <--- aux functions --->
 
+error_counter = 0   # global counter
+
+
 def run_flake8_on_file(filename):
     flake8_exit_code = subprocess.call("flake8 " + str(filename), shell=True)
     if flake8_exit_code != 0:   # flake8_exit_code == 0 means OK
+        global error_counter
+        error_counter += 1
         return flake8_exit_code
-    print(Fore.GREEN + "%r flake8... OK.\n") % filename
+
+    print(Fore.GREEN + "%r... OK.") % filename
 
 
 def create_py_list_from_directory():
@@ -29,20 +35,31 @@ def create_py_list_from_directory():
     return script_list
 
 
+def exit_if_list_is_empty(list):
+    if not list:
+        print(Fore.RED + "No .py files found. Try another directory.")
+        raise SystemError   # stops execution and raise SystemError exception
+
+
+def print_results():
+    if error_counter > 0:
+        print(Fore.RED + "\n" + "Finished. Some errors found.")
+    else:
+        print("\n" + "> All scripts have passed flake8!")
+
+
 # <--- beginning of the script --->
 
 def flake8_runner():
     py_list = create_py_list_from_directory()
-    if not py_list:
-        print(Fore.RED + "No .py files found.")
-        raise SystemExit    # stops execution and raise SystemExit exception
+    exit_if_list_is_empty(py_list)
+    list_size = str(len(py_list))
 
-    print(str(len(py_list)) + " .py scripts to be executed: " + ".\n")
-
+    print(list_size + " files to be analyzed: " + "\n")
     # run flake8 for every .py file on the current directory
     for script in py_list:
         run_flake8_on_file(script)
 
-    print("> All scripts have passed flake8!")
+    print_results()
 
 flake8_runner()
