@@ -77,10 +77,10 @@ def main():
     """
     This is the main function of the script. It lists all the .py
     files from the current directory and then applies the 'flake8'
-    command to each. Finally, prints the result message.
+    command to each. Finally, prints the results.
     """
 
-    issues_found = 0
+    issues_found = False
 
     py_list = create_py_list_from_directory()
     exit_if_list_is_empty(py_list)
