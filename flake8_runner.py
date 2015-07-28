@@ -11,10 +11,6 @@ init()
 
 # <--- aux functions --->
 
-# global number_of_issues_found
-# number_of_issues_found = 0
-
-
 def run_flake8_on_file(py_file):
     """
     Runs 'flake8' command on 'py_file' passed as argument.
