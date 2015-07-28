@@ -9,7 +9,7 @@ from colorama import Fore, init
 init()
 
 
-# <--- color constants --->
+# <--- colors --->
 
 GREEN = Fore.GREEN
 RED = Fore.RED
@@ -19,17 +19,17 @@ RED = Fore.RED
 
 def run_flake8_on(py_file):
     """
-    Runs 'flake8' command on 'py_file' passed as argument.
+    Runs 'flake8' command on 'py_file' passed as argument and returns.
     flake8_exit_code contains the exit code from calling 'flake8' command with
     'py_file' as argument. If flake8_exit_code is equal to zero, it means there
     are no errors and an 'OK' legend will be printed.
     Otherwise, the issue is reported.
     """
 
-    issues = 0
+    issues = False
     flake8_exit_code = subprocess.call("flake8 " + str(py_file), shell=True)
     if flake8_exit_code != 0:
-        issues = 1
+        issues = True
         return flake8_exit_code
     else:
         print("{}{!r}{}".format(GREEN, py_file, "... OK."))
@@ -67,14 +67,13 @@ def exit_if_list_is_empty(py_list):
 def show_results(issues):
     """
     Prints the result, after all the files from the current directory
-    have been analyzed. If issues are found, shows the quantity.
+    have been analyzed. If any issue is found, it shows a warning message.
     """
 
-    if issues > 0:
-        print("{}{}{}".format(RED, "\n", "Finished. ", issues,
-              " issues found."))
+    if issues:
+        print("{}{}{}".format(RED, "\n", "WARNING: Some issues found."))
     else:
-        print("{}{}".format("\n", "Finished. All scripts have passed flake8!"))
+        print("{}{}".format("\n", "OK! All scripts have passed flake8."))
 
 
 # <--- beginning of the script --->
