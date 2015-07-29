@@ -7,7 +7,6 @@ https://github.com/nhquiroz/flake8-runner
 GPL v2.0 License.
 """
 
-# <--- modules needed --->
 
 import glob
 import subprocess
@@ -15,15 +14,13 @@ from colorama import Fore, init
 init()
 
 
-# <--- aux functions --->
-
 def run_flake8_on(py_file):
     """
     Runs 'flake8' command on 'py_file' passed as argument and returns a
-    Boolean value, indicating if any issue is found.
-    flake8_exit_code contains the exit code from calling 'flake8' command with
-    'py_file' as argument. If flake8_exit_code equals 0, there are no errors
-    and an 'OK' legend will be printed. Otherwise, the issue is reported.
+    Boolean, indicating if any issue is found. flake8_exit_code variable
+    contains the exit code from calling 'flake8' command with 'py_file'
+    as argument. If flake8_exit_code equals 0, there are no errors and
+    an 'OK' legend will be printed. Otherwise, the issue is reported.
     """
 
     issues = False
@@ -36,29 +33,31 @@ def run_flake8_on(py_file):
     return issues
 
 
-def create_py_gen_from_directory():
+def py_gen_from():
     """
-    Returns a generator, to iterate over all the existent .py files on the
-    current directory (except for this script).
+    Returns a generator to iterate over all the existent .py files on
+    the current directory (except for this script).
     """
 
-    py_gen = (py for py in glob.glob("*.py") if py != 'flake8_runner.py')
-
-    return py_gen
+    return (py for py in glob.glob("*.py") if py != 'flake8_runner.py')
 
 
-def exit_if_gen_is_empty(py_gen):
+def exit_if_empty(py_gen):
     """
-    If the iterator passed as argument is empty (None), this functions prints
-    an error message and stops the execution of the script.
+    Stops the execution and shows a message if the iterator passed as
+    argument is empty (references to None).
+    Otherwise, the iterator is reseted.
     """
 
     try:
-        next(py_gen)
+        py_gen.next()
     except StopIteration:
         print("{}No '*.py' files found in this directory.".format(Fore.RED))
         import sys
         sys.exit()
+    else:
+        py_gen = py_gen_from()
+        return py_gen
 
 
 def show_results(issues):
@@ -73,7 +72,7 @@ def show_results(issues):
         print("{0}\nOK! All scripts have passed flake8.".format(Fore.GREEN))
 
 
-# <--- beginning of the script --->
+#   beginning of the script
 
 def main():
     """
@@ -82,13 +81,14 @@ def main():
     Finally, it prints the results.
     """
 
+    # directory = argument passed
+
+    first_gen = py_gen_from()
+    second_gen = exit_if_empty(first_gen)
+
     issues_found = False
-
-    py_gen = create_py_gen_from_directory()
-    exit_if_gen_is_empty(py_gen)
-
-    for py_file in py_gen:
-        issues_found = run_flake8_on(py_file)
+    for py_file in second_gen:
+        issues_found = issues_found or run_flake8_on(py_file)
 
     show_results(issues_found)
 
