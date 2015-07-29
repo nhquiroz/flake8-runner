@@ -72,8 +72,6 @@ def show_results(issues):
         print("{0}\nOK! All scripts have passed flake8.".format(Fore.GREEN))
 
 
-#   beginning of the script
-
 def main():
     """
     This is the main function of the script. It iterates over all the .py
