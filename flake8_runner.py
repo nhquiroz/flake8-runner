@@ -81,8 +81,6 @@ def main():
     Finally, it prints the results.
     """
 
-    # directory = argument passed
-
     first_gen = py_gen_from()
     second_gen = exit_if_empty(first_gen)
 
