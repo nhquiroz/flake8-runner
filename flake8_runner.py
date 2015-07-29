@@ -15,12 +15,6 @@ from colorama import Fore, init
 init()
 
 
-# <--- colors --->
-
-GREEN = Fore.GREEN
-RED = Fore.RED
-
-
 # <--- aux functions --->
 
 def run_flake8_on(py_file):
@@ -37,7 +31,7 @@ def run_flake8_on(py_file):
     if flake8_exit_code != 0:
         issues = True
     else:
-        print("{0}{1!r}... OK.".format(GREEN, py_file))
+        print("{!r}... OK.".format(py_file))
 
     return issues
 
@@ -62,7 +56,7 @@ def exit_if_gen_is_empty(py_gen):
     try:
         next(py_gen)
     except StopIteration:
-        print("{0}No '*.py' files found. Try another directory.".format(RED))
+        print("{}No '*.py' files found in this directory.".format(Fore.RED))
         import sys
         sys.exit()
 
@@ -74,9 +68,9 @@ def show_results(issues):
     """
 
     if issues:
-        print("{0}\nWARNING: Some issues found.".format(RED))
+        print("{0}\nWARNING: Some issues found.".format(Fore.RED))
     else:
-        print("\nOK! All scripts have passed flake8.")
+        print("{0}\nOK! All scripts have passed flake8.".format(Fore.GREEN))
 
 
 # <--- beginning of the script --->
