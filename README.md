@@ -13,7 +13,6 @@ A simple python (2.7.6) script that runs flake8 on every .py file, from the curr
 ## Usage
 
 ```
-$ pip install flake8
-$ cd /py-files-directory
+$ cd /directory-you-want-to-analyze
 $ python flake8-runner.py
 ```
