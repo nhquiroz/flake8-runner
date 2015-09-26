@@ -16,3 +16,7 @@ A simple python (2.7.6) script that runs flake8 on every .py file, from the curr
 $ cd /directory-you-want-to-analyze
 $ python flake8-runner.py
 ```
+
+
+[![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/nhquiroz/flake8-runner/trend.png)](https://bitdeli.com/free "Bitdeli Badge")
+
