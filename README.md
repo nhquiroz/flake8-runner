@@ -4,7 +4,7 @@
 
 ## Overview
 
-A simple python (2.7.6) script that runs flake8 on every .py file, from the current directory.  
+Script that runs flake8 on every .py file from the current directory, using generators for improved efficiency.  
 
 **Requirements:** [Python 2.6.x or newer](https://www.python.org/downloads/) and [flake8](https://pypi.python.org/pypi/flake8) package.    
 
